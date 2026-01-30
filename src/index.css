@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   :root {
     --color-bg: #000000;
     --color-text: #ffffff;
@@ -10,3 +13,4 @@
     --color-neon-shadow: rgba(255, 255, 255, 0.6);
   }
 }
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionReveal from './SectionReveal';
 
 const Resume = () => {
   const education = [
@@ -87,16 +88,19 @@ const Resume = () => {
   ];
 
   return (
-    <section className="w-full py-20 px-4">
+    <section id="resume" className="w-full py-20 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-5xl md:text-6xl font-bold text-white text-center mb-16">
-          Resume
-        </h2>
+        <SectionReveal>
+          <h2 className="text-5xl md:text-6xl font-bold text-white text-center mb-16">
+            Resume
+          </h2>
+        </SectionReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Education Section */}
-          <div>
+          <SectionReveal delay={0.2}>
+            <div>
             <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
               Education
             </h3>
@@ -141,10 +145,12 @@ const Resume = () => {
                 </div>
               ))}
             </div>
-          </div>
+            </div>
+          </SectionReveal>
 
           {/* Work Experience Section */}
-          <div>
+          <SectionReveal delay={0.4}>
+            <div>
             <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
               Work Experience
             </h3>
@@ -226,7 +232,8 @@ const Resume = () => {
                 </div>
               ))}
             </div>
-          </div>
+            </div>
+          </SectionReveal>
         </div>
       </div>
     </section>

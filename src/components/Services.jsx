@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionReveal from './SectionReveal';
 
 const Services = () => {
   const services = [
@@ -86,38 +87,41 @@ const Services = () => {
   ];
 
   return (
-    <section className="w-full py-20 px-4">
+    <section id="services" className="w-full py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-5xl md:text-6xl font-bold text-white text-center mb-16">
-          Services
-        </h2>
+        <SectionReveal>
+          <h2 className="text-5xl md:text-6xl font-bold text-white text-center mb-16">
+            Services
+          </h2>
+        </SectionReveal>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className={`group relative bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 ${service.borderColor} transition-all duration-300 hover:shadow-xl hover:shadow-black/50 hover:-translate-y-1`}
-            >
-              {/* Icon Container */}
-              <div className={`${service.iconBg} rounded-2xl w-20 h-20 flex items-center justify-center mb-6 mx-auto transition-transform duration-300 group-hover:scale-110`}>
-                {service.icon}
+            <SectionReveal key={index} delay={index * 0.1}>
+              <div
+                className={`group relative bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 ${service.borderColor} transition-all duration-300 hover:shadow-xl hover:shadow-black/50 hover:-translate-y-1 h-full`}
+              >
+                {/* Icon Container */}
+                <div className={`${service.iconBg} rounded-2xl w-20 h-20 flex items-center justify-center mb-6 mx-auto transition-transform duration-300 group-hover:scale-110`}>
+                  {service.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold text-white text-center mb-3">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-400 text-sm text-center leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Gradient overlay on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300 pointer-events-none`}></div>
               </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-bold text-white text-center mb-3">
-                {service.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-400 text-sm text-center leading-relaxed">
-                {service.description}
-              </p>
-
-              {/* Gradient overlay on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300 pointer-events-none`}></div>
-            </div>
+            </SectionReveal>
           ))}
         </div>
       </div>

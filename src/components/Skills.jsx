@@ -1,4 +1,4 @@
-import React from 'react';
+import SectionReveal from './SectionReveal';
 
 const Skills = () => {
   const skillsData = [
@@ -44,60 +44,63 @@ const Skills = () => {
   ];
 
   return (
-    <section className="w-full py-16 px-4">
+    <section id="about" className="w-full py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            My Skills
-          </h2>
-          <p className="text-gray-400 text-lg">
-            Technologies and tools I work with
-          </p>
-        </div>
+        <SectionReveal>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              My Skills
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Technologies and tools I work with
+            </p>
+          </div>
+        </SectionReveal>
 
         {/* Skills Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillsData.map((category, index) => (
-            <div
-              key={index}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-[var(--color-primary)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--color-primary)]/20"
-            >
-              {/* Card Header */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="text-[var(--color-primary)]">
-                  {category.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-white">
-                  {category.title}
-                </h3>
-              </div>
-
-              {/* Skills List with Progress Bars */}
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    {/* Skill Name and Percentage */}
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-300 text-sm font-medium">
-                        {skill.name}
-                      </span>
-                      <span className="text-gray-400 text-sm">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    
-                    {/* Progress Bar */}
-                    <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
-                      <div
-                        className="bg-gradient-to-r from-[var(--color-primary)] to-purple-500 h-full rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+            <SectionReveal key={index} delay={index * 0.2}>
+              <div
+                className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-[var(--color-primary)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--color-primary)]/20 h-full"
+              >
+                {/* Card Header */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="text-[var(--color-primary)]">
+                    {category.icon}
                   </div>
-                ))}
+                  <h3 className="text-xl font-semibold text-white">
+                    {category.title}
+                  </h3>
+                </div>
+
+                {/* Skills List with Progress Bars */}
+                <div className="space-y-4">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex}>
+                      {/* Skill Name and Percentage */}
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-gray-300 text-sm font-medium">
+                          {skill.name}
+                        </span>
+                        <span className="text-gray-400 text-sm">
+                          {skill.level}%
+                        </span>
+                      </div>
+                      
+                      {/* Progress Bar */}
+                      <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div
+                          className="bg-gradient-to-r from-[var(--color-primary)] to-purple-500 h-full rounded-full transition-all duration-1000 ease-out"
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </SectionReveal>
           ))}
         </div>
       </div>

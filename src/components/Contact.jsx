@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionReveal from './SectionReveal';
 
 const Contact = () => {
   const contactLinks = [
@@ -53,53 +54,56 @@ const Contact = () => {
   ];
 
   return (
-    <section className="w-full py-20 px-4">
+    <section id="contact" className="w-full py-20 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-5xl md:text-6xl font-bold text-white text-center mb-16">
-          Contact me
-        </h2>
+        <SectionReveal>
+          <h2 className="text-5xl md:text-6xl font-bold text-white text-center mb-16">
+            Contact me
+          </h2>
+        </SectionReveal>
 
         {/* Contact Icons Grid */}
         <div className="flex flex-wrap justify-center items-center gap-8">
           {contactLinks.map((contact, index) => (
-            <a
-              key={index}
-              href={contact.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group relative flex items-center justify-center w-24 h-24 rounded-full border-2 border-gray-600 backdrop-blur-sm transition-all duration-300 ${contact.color} ${contact.bgColor} ${contact.shadowColor} hover:border-current hover:scale-110 hover:shadow-xl hover:-translate-y-2`}
-              style={{
-                animationDelay: `${index * 100}ms`
-              }}
-            >
-              {/* Icon */}
-              <div className="transition-transform duration-300 group-hover:scale-110">
-                {contact.icon}
-              </div>
+            <SectionReveal key={index} delay={index * 0.1} width="auto">
+              <a
+                href={contact.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group relative flex items-center justify-center w-24 h-24 rounded-full border-2 border-gray-600 backdrop-blur-sm transition-all duration-300 ${contact.color} ${contact.bgColor} ${contact.shadowColor} hover:border-current hover:scale-110 hover:shadow-xl hover:-translate-y-2`}
+              >
+                {/* Icon */}
+                <div className="transition-transform duration-300 group-hover:scale-110">
+                  {contact.icon}
+                </div>
 
-              {/* Tooltip */}
-              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <span className="text-sm font-medium text-white bg-gray-900 px-3 py-1 rounded-lg whitespace-nowrap">
-                  {contact.name}
-                </span>
-              </div>
+                {/* Tooltip */}
+                <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <span className="text-sm font-medium text-white bg-gray-900 px-3 py-1 rounded-lg whitespace-nowrap">
+                    {contact.name}
+                  </span>
+                </div>
 
-              {/* Animated ring on hover */}
-              <div className="absolute inset-0 rounded-full border-2 border-current opacity-0 group-hover:opacity-100 scale-100 group-hover:scale-125 transition-all duration-500"></div>
-            </a>
+                {/* Animated ring on hover */}
+                <div className="absolute inset-0 rounded-full border-2 border-current opacity-0 group-hover:opacity-100 scale-100 group-hover:scale-125 transition-all duration-500"></div>
+              </a>
+            </SectionReveal>
           ))}
         </div>
 
         {/* Additional Contact Info */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-400 text-lg">
-            Feel free to reach out through any of these platforms
-          </p>
-          <p className="text-gray-500 text-sm mt-2">
-            I typically respond within 24 hours
-          </p>
-        </div>
+        <SectionReveal delay={0.4}>
+          <div className="mt-16 text-center">
+            <p className="text-gray-400 text-lg">
+              Feel free to reach out through any of these platforms
+            </p>
+            <p className="text-gray-500 text-sm mt-2">
+              I typically respond within 24 hours
+            </p>
+          </div>
+        </SectionReveal>
+
       </div>
     </section>
   );
