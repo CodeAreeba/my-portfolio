@@ -4,6 +4,13 @@ import Footer from './Footer';
 const Layout = ({ children }) => {
   return (
     <div className="relative min-h-screen bg-main text-text-main font-sans">
+      {/* Subtle Neon Gray Gradient Overlay */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-500/15 via-transparent to-gray-600/15"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-gray-400/10 to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-500/8 via-transparent to-transparent"></div>
+      </div>
+
       {/* Border Frame Container - extends with content */}
       <div className="relative min-h-screen">
         {/* Top Horizontal Line */}
